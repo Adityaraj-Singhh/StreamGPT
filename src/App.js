@@ -1,10 +1,14 @@
 
-import './App.css';
+import Body from './components/Body'
+import React from 'react'
 
-function App() {
+const App = () => {
   return (
-    <div className='text-3xl text-bold text-green-800 m-4 p-4'>Let's learn AI integration</div>
-  );
+    <div>
+      <Body/>
+    </div>
+  )
 }
 
-export default App;
+export default App
+
