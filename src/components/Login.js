@@ -1,9 +1,12 @@
 import React, { useState, useRef } from 'react'
 import Header from './Header';
 import { checkValidData } from '../utils/Validate';
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {addUser} from '../utils/userSlice'
+
 
 
 const Login = () => {
@@ -12,6 +15,8 @@ const Login = () => {
 const [ isSignIn , setIsSignIn ] = useState(true);
 const [errorMessage, setErrorMessage] = useState(null);
 const navigate = useNavigate();
+
+const dispatch = useDispatch();
 
 
 const email = useRef(null); //useRef is used to reference a tag
@@ -28,6 +33,7 @@ const handleClick = () => {
     console.log("Email:", email.current.value);
     console.log("Password:", password.current.value);
     const message =  checkValidData(email.current.value,password.current.value);
+
 //    console.log(message);
     setErrorMessage(message);
 
@@ -36,7 +42,22 @@ const handleClick = () => {
       .then((userCredential) => {
         // Signed up 
         const user = userCredential.user;
-        navigate("/Browse");
+        
+        
+        updateProfile(user, {
+          displayName: name.current.value, photoURL: "https://avatars.githubusercontent.com/u/120194504?v=4"
+        }).then(() => {
+          // Profile updated!
+          const {uid,email,displayName,photoURL} = auth.currentUser;
+          dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL:photoURL}))
+          navigate("/Browse");
+          
+          // ...
+        }).catch((error) => {
+          // An error occurred
+          setErrorMessage(errorMessage);
+          // ...
+        });
         console.log(user);
         // ...
       })
