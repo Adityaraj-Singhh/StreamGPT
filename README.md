@@ -9,7 +9,11 @@
 - Sign Up
 - Form validation
 - UseRef Hook
-
+- Firebase Setup
+- Deploying our app to production
+- Create SignUp User Account
+- Implement SignIn user API
+- Created Redux Store with userSlice
 
 ..
 # Features
@@ -26,7 +30,7 @@
         - Movie Suggestions
             - MovieLists * N
 
-- CinflexGPT
+- StreamGPT
     - Search Bar
     - Movie Suggestions
 
