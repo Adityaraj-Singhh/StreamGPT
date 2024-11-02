@@ -60,7 +60,7 @@ const handleClick = () => {
           setErrorMessage(errorMessage);
           // ...
         });
-        console.log(user);
+        // console.log(user);
         // ...
       })
       .catch((error) => {
@@ -76,7 +76,7 @@ const handleClick = () => {
         // Signed in 
         const user = userCredential.user;
         navigate("/Browse");
-        console.log(user);
+        // console.log(user);
 
         // ...
       })
