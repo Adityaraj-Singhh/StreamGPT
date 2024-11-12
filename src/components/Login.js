@@ -105,7 +105,7 @@ const handleClick = () => {
         <input ref = {email} type='text' placeholder='Email Address' className='p-3 my-4 w-full bg-gray-700'/>
         <input ref = {password} type='password' placeholder='Password' className='p-3 my-4 w-full  bg-gray-700'/>
         <p className='text-red-500 font-bold text-lg py-2'>{errorMessage}</p>
-        <button type='submit' className='p-4 my-4 bg-red-700 w-full rounded-lg' onClick={handleClick}>{isSignIn? "Sign In":"Sign Up"}</button>
+        <button type='submit' className='p-4 my-4 bg-yellow-700 w-full rounded-lg' onClick={handleClick}>{isSignIn? "Sign In":"Sign Up"}</button>
         <p className='py-4 cursor-pointer' onClick={toggleSignInForm}>{isSignIn?"Not a memeber? Sign Up now" : "Already a member? Sign in"}</p>
     </form>
 
