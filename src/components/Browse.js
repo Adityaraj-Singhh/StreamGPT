@@ -31,6 +31,7 @@ const Browse = () => {
       )  //React fragmenmt is used. Without this we will get error{JSX expression should have one parent}
 
       }
+      
       {/*
             MainContainer
              - VideoBackground
